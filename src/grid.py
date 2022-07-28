@@ -41,12 +41,18 @@ def draw_grid():
             rect = pygame.Rect(x + BORDER_THICKNESS, y + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
             pygame.draw.rect(SCREEN, WHITE, rect, 0)
 
+
+def calc_true_coord(n):
+    return (BORDER_THICKNESS + BLOCK_LENGTH) * n
+
+
 def draw_cell(x, y, colour):
-    x_ = (BORDER_THICKNESS + BLOCK_LENGTH) * x
-    y_ = (BORDER_THICKNESS + BLOCK_LENGTH) * y
+    x_ = calc_true_coord(x)
+    y_ = calc_true_coord(y)
 
     rect = pygame.Rect(x_ + BORDER_THICKNESS, y_ + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
     pygame.draw.rect(SCREEN, colour, rect, 0)
+
 
 if __name__ == "__main__":
     main()
