@@ -3,6 +3,9 @@ import sys
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
 
 BLOCK_LENGTH = 20
 
@@ -37,6 +40,13 @@ def drawGrid():
         for y in range(0, WINDOW_HEIGHT, BLOCK_LENGTH + BORDER_THICKNESS):
             rect = pygame.Rect(x + BORDER_THICKNESS, y + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
             pygame.draw.rect(SCREEN, WHITE, rect, 0)
+
+def drawCell(x, y, colour):
+    x_ = (BORDER_THICKNESS + BLOCK_LENGTH) * x
+    y_ = (BORDER_THICKNESS + BLOCK_LENGTH) * y
+
+    rect = pygame.Rect(x_ + BORDER_THICKNESS, y_ + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
+    pygame.draw.rect(SCREEN, colour, rect, 0)
 
 if __name__ == "__main__":
     main()
