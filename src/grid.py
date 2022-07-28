@@ -23,6 +23,7 @@ WINDOW_HEIGHT = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_Y + BORDER_THICKNESS
 
 cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
 
+
 def main():
     global SCREEN
     pygame.init()
@@ -40,20 +41,10 @@ def main():
         pygame.display.update()
 
 
-def get_colour(x, y):
-    if cells[x][y]:
-        return POPULATED
-    return UNPOPULATED
-
-
 def draw_grid():
     for x in range(0, BLOCKS_X):
         for y in range(0, BLOCKS_Y):
             draw_cell(x, y, get_colour(x, y))
-
-
-def calc_true_coord(n):
-    return (BORDER_THICKNESS + BLOCK_LENGTH) * n + BORDER_THICKNESS
 
 
 def draw_cell(x, y, colour):
@@ -62,6 +53,16 @@ def draw_cell(x, y, colour):
 
     rect = pygame.Rect(x_, y_, BLOCK_LENGTH, BLOCK_LENGTH)
     pygame.draw.rect(SCREEN, colour, rect, 0)
+
+
+def get_colour(x, y):
+    if cells[x][y]:
+        return POPULATED
+    return UNPOPULATED
+
+
+def calc_true_coord(n):
+    return (BORDER_THICKNESS + BLOCK_LENGTH) * n + BORDER_THICKNESS
 
 
 if __name__ == "__main__":
