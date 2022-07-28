@@ -1,22 +1,24 @@
 import pygame
 import sys
 
+# colours
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
-BLOCK_LENGTH = 20
-
+# blocks
 BLOCKS_X = 40
 BLOCKS_Y = 40
-
+BLOCK_LENGTH = 20
 BORDER_THICKNESS = 1
 
+# dimensions
 WINDOW_WIDTH = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_X + BORDER_THICKNESS
 WINDOW_HEIGHT = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_Y + BORDER_THICKNESS
 
+cells = ([False] * BLOCKS_Y) * BLOCKS_X
 
 def main():
     global SCREEN
@@ -34,23 +36,21 @@ def main():
 
         pygame.display.update()
 
-
 def draw_grid():
-    for x in range(0, WINDOW_WIDTH, BLOCK_LENGTH + BORDER_THICKNESS):
-        for y in range(0, WINDOW_HEIGHT, BLOCK_LENGTH + BORDER_THICKNESS):
-            rect = pygame.Rect(x + BORDER_THICKNESS, y + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
-            pygame.draw.rect(SCREEN, WHITE, rect, 0)
+    for x in range(0, BLOCKS_X):
+        for y in range(0, BLOCKS_Y):
+            draw_cell(x, y, WHITE)
 
 
 def calc_true_coord(n):
-    return (BORDER_THICKNESS + BLOCK_LENGTH) * n
+    return (BORDER_THICKNESS + BLOCK_LENGTH) * n + BORDER_THICKNESS
 
 
 def draw_cell(x, y, colour):
     x_ = calc_true_coord(x)
     y_ = calc_true_coord(y)
 
-    rect = pygame.Rect(x_ + BORDER_THICKNESS, y_ + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
+    rect = pygame.Rect(x_, y_, BLOCK_LENGTH, BLOCK_LENGTH)
     pygame.draw.rect(SCREEN, colour, rect, 0)
 
 
