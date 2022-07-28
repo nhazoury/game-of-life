@@ -8,6 +8,9 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
+POPULATED = WHITE
+UNPOPULATED = BLACK
+
 # blocks
 BLOCKS_X = 40
 BLOCKS_Y = 40
@@ -18,7 +21,7 @@ BORDER_THICKNESS = 1
 WINDOW_WIDTH = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_X + BORDER_THICKNESS
 WINDOW_HEIGHT = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_Y + BORDER_THICKNESS
 
-cells = ([False] * BLOCKS_Y) * BLOCKS_X
+cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
 
 def main():
     global SCREEN
@@ -36,10 +39,17 @@ def main():
 
         pygame.display.update()
 
+
+def get_colour(x, y):
+    if cells[x][y]:
+        return POPULATED
+    return UNPOPULATED
+
+
 def draw_grid():
     for x in range(0, BLOCKS_X):
         for y in range(0, BLOCKS_Y):
-            draw_cell(x, y, WHITE)
+            draw_cell(x, y, get_colour(x, y))
 
 
 def calc_true_coord(n):
