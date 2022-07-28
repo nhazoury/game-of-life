@@ -26,7 +26,7 @@ def main():
     SCREEN.fill(BLACK)
 
     while True:
-        drawGrid()
+        draw_grid()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -35,13 +35,13 @@ def main():
         pygame.display.update()
 
 
-def drawGrid():
+def draw_grid():
     for x in range(0, WINDOW_WIDTH, BLOCK_LENGTH + BORDER_THICKNESS):
         for y in range(0, WINDOW_HEIGHT, BLOCK_LENGTH + BORDER_THICKNESS):
             rect = pygame.Rect(x + BORDER_THICKNESS, y + BORDER_THICKNESS, BLOCK_LENGTH, BLOCK_LENGTH)
             pygame.draw.rect(SCREEN, WHITE, rect, 0)
 
-def drawCell(x, y, colour):
+def draw_cell(x, y, colour):
     x_ = (BORDER_THICKNESS + BLOCK_LENGTH) * x
     y_ = (BORDER_THICKNESS + BLOCK_LENGTH) * y
 
