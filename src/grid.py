@@ -8,8 +8,8 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
-POPULATED = WHITE
-UNPOPULATED = BLACK
+LIVE = WHITE
+DEAD = BLACK
 
 # blocks
 BLOCKS_X = 40
@@ -57,8 +57,8 @@ def draw_cell(x, y, colour):
 
 def get_colour(x, y):
     if cells[x][y]:
-        return POPULATED
-    return UNPOPULATED
+        return LIVE
+    return DEAD
 
 
 def calc_true_coord(n):
