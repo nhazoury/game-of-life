@@ -1,6 +1,8 @@
 import pygame
 import sys
 
+from cell import CellHandler
+
 # colours
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -22,6 +24,7 @@ WINDOW_WIDTH = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_X + BORDER_THICKNESS
 WINDOW_HEIGHT = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_Y + BORDER_THICKNESS
 
 cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
+cellHandler = CellHandler(cells)
 
 
 def main():
@@ -56,7 +59,7 @@ def draw_cell(x, y, colour):
 
 
 def get_colour(x, y):
-    if cells[x][y]:
+    if cellHandler.is_live(x, y):
         return LIVE
     return DEAD
 
