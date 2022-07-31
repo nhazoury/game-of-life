@@ -24,7 +24,7 @@ def main():
                 sys.exit()
 
         pygame.display.update()
-        time.sleep(0.5)
+        time.sleep(TICK_TIME)
         cellHandler.next_interation()
 
 
