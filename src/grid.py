@@ -10,6 +10,7 @@ cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
 cellHandler = CellHandler(cells)
 patternMaker = PatternMaker(cellHandler)
 
+
 def main():
     global SCREEN
     pygame.init()
@@ -51,7 +52,3 @@ def get_colour(x, y):
 
 def calc_true_coord(n):
     return (BORDER_THICKNESS + BLOCK_LENGTH) * n + BORDER_THICKNESS
-
-
-if __name__ == "__main__":
-    main()
