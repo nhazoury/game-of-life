@@ -1,8 +1,7 @@
-import pygame
 import sys
-import time
 
-from cell import CellHandler
+import pygame
+
 from config import *
 from patterns import *
 
@@ -17,6 +16,7 @@ def main():
     pygame.display.set_caption('Conway\'s Game of Life by nhazoury')
     SCREEN = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     SCREEN.fill(BLACK)
+    CLOCK = pygame.time.Clock()
 
     while True:
         draw_grid()
@@ -26,8 +26,8 @@ def main():
                 sys.exit()
 
         pygame.display.update()
-        time.sleep(TICK_TIME)
         cellHandler.next_interation()
+        CLOCK.tick(FPS)
 
 
 def draw_grid():
