@@ -2,26 +2,7 @@ import pygame
 import sys
 
 from cell import CellHandler
-
-# colours
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-
-LIVE = WHITE
-DEAD = BLACK
-
-# blocks
-BLOCKS_X = 40
-BLOCKS_Y = 40
-BLOCK_LENGTH = 20
-BORDER_THICKNESS = 1
-
-# dimensions
-WINDOW_WIDTH = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_X + BORDER_THICKNESS
-WINDOW_HEIGHT = (BORDER_THICKNESS + BLOCK_LENGTH) * BLOCKS_Y + BORDER_THICKNESS
+from config import *
 
 cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
 cellHandler = CellHandler(cells)
