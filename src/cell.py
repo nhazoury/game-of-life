@@ -56,3 +56,8 @@ class CellHandler:
                 new[x][y] = self.live_in_next(x, y)
         self.cells = new
 
+    def set_live(self, x, y):
+        self.cells[x][y] = True
+
+    def set_dead(self, x, y):
+        self.cells[x][y] = False
