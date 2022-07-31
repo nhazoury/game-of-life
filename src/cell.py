@@ -48,3 +48,11 @@ class CellHandler:
                 return True
 
         return False
+
+    def next_interation(self):
+        new = [[False for j in range(self.x_blocks())] for i in range(self.y_blocks())]
+        for y in range(self.y_blocks()):
+            for x in range(self.x_blocks()):
+                new[y][x] = self.live_in_next(x, y)
+        self.cells = new
+

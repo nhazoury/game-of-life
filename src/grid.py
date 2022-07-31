@@ -1,10 +1,11 @@
 import pygame
 import sys
+import time
 
 from cell import CellHandler
 from config import *
 
-cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
+cells = [[False for j in range(BLOCKS_X)] for i in range(BLOCKS_Y)]
 cellHandler = CellHandler(cells)
 
 
@@ -23,6 +24,8 @@ def main():
                 sys.exit()
 
         pygame.display.update()
+        time.sleep(0.5)
+        cellHandler.next_interation()
 
 
 def draw_grid():
