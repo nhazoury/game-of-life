@@ -39,4 +39,12 @@ class CellHandler:
         return count
 
     def live_in_next(self, x, y):
+        n = self.num_live_neighbours(x, y)
+        if self.is_live(x, y):
+            if n == 2 or n == 3:
+                return True
+        else:
+            if n == 3:
+                return True
+
         return False
