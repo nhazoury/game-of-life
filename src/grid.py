@@ -5,7 +5,7 @@ import time
 from cell import CellHandler
 from config import *
 
-cells = [[False for j in range(BLOCKS_X)] for i in range(BLOCKS_Y)]
+cells = [[False for j in range(BLOCKS_Y)] for i in range(BLOCKS_X)]
 cellHandler = CellHandler(cells)
 
 

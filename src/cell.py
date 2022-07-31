@@ -14,7 +14,7 @@ class CellHandler:
         return len(self.cells[0])
 
     def is_live(self, x, y):
-        return self.cells[y][x]
+        return self.cells[x][y]
 
     def neighbour_is_live(self, x, y, horiz, vert):
         x_ = x + horiz
@@ -50,9 +50,9 @@ class CellHandler:
         return False
 
     def next_interation(self):
-        new = [[False for j in range(self.x_blocks())] for i in range(self.y_blocks())]
-        for y in range(self.y_blocks()):
-            for x in range(self.x_blocks()):
-                new[y][x] = self.live_in_next(x, y)
+        new = [[False for j in range(self.y_blocks())] for i in range(self.x_blocks())]
+        for x in range(self.x_blocks()):
+            for y in range(self.y_blocks()):
+                new[x][y] = self.live_in_next(x, y)
         self.cells = new
 
