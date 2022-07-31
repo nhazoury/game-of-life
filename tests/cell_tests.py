@@ -23,5 +23,26 @@ def test_number_of_live_neighbours_of_dead_cell():
 def test_number_of_live_neighbours_of_live_cell():
     assert c.num_live_neighbours(2, 2) == 2
 
+
 def test_number_of_live_neighbours_of_border_cell():
     assert c.num_live_neighbours(0, 3) == 1
+
+
+def test_live_in_next_case_1():
+    # Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+    assert not c.live_in_next(3, 0)
+
+
+def test_live_in_next_case_2():
+    # Any live cell with two or three live neighbours lives on to the next generation.
+    assert c.live_in_next(1, 0)
+
+
+def test_live_in_next_case_3():
+    # Any live cell with more than three live neighbours dies, as if by overpopulation.
+    assert not c.live_in_next(1, 1)
+
+
+def test_live_in_next_case_4():
+    # Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    assert c.live_in_next(1, 2)

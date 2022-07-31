@@ -37,3 +37,6 @@ class CellHandler:
             count -= 1
 
         return count
+
+    def live_in_next(self, x, y):
+        return False
