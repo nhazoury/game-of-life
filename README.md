@@ -8,3 +8,5 @@ To run, use:
 ```
 python3 src/life.py
 ```
+
+Note that with the code as it is, there will be no live cells in the initial configuration. Add some shapes in using the ``PatternMaker``.
